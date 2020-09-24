@@ -1,0 +1,78 @@
+{% extends 'me/header.html' %}
+<body>
+{% block after_header %}
+	<div class="footer" id="contact">
+	<div class="container">
+	<div class="service-head one text-center">
+						<h4>CONTACT ME</h4>
+						<h3>GET <span>IN TOUCH WITH ME</span></h3>
+						<span class="border two"></span>
+					</div>
+
+
+		<div class="mail_us">
+			<div class="container ">	
+			<div class="col-md-6 mail_left"  style="margin-bottom:0; padding-bottom:0;">
+				<div class="contact-grid1-left">
+					<div class="contact-grid1-left1">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+						<h4>Contact By Email</h4>
+						<ul>
+							<li>Mail1: <a href="mailto:dk.silicon@gmail.com">dk.silicon@gmail.com</a></li>
+						</ul>
+					</div>
+				</div>
+					<div class="contact-grid1-left">
+						<div class="contact-grid1-left1">
+							<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+							<h4>Contact By Phone</h4>
+							<ul>
+								<li>Phone: +91-876 311 2592</li>
+							</ul>
+							<ul>
+								<li>Phone: +91-849 987 6308</li>
+							</ul>
+						</div>
+					</div>
+					<div class="contact-grid1-left">
+						<div class="contact-grid1-left1">
+							<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+							<h4>Looking For Address</h4>
+							<ul>
+								<li>Villa-144, Emerald Park</li>
+								<li>Hyderabad, 500088</li>
+							</ul>
+						</div>
+					</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col-md-6 mail_right">
+
+				<form action="" method="post" >  {% csrf_token %}
+					{{form}}
+					<!-- <input type="text" id="name" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+					<input type="email" id="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+					<input type="text" id="mobile" name="Mobile number" value="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
+					<textarea name="Message..." id="message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea> -->
+					<input type="submit" value="Send">
+					
+				</form>
+			</div>
+			<div class="clearfix"></div>
+			</div>
+		</div>
+
+
+		<div class="copy_right text-center">
+			<p>&copy; 2016 Preface . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts.</a></p>
+			 <ul class="social-icons two">
+							<li><a href="#"> </a></li>
+							<li><a href="#" class="fb"> </a></li>
+							<li><a href="#" class="in"> </a></li>
+							<li><a href="#" class="dott"> </a></li>
+						</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
+</body>

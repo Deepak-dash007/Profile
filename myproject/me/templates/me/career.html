@@ -1,0 +1,68 @@
+{% extends 'me/header.html' %}
+{% load custom_filter %}
+<body>
+{% block after_header %}
+<div id="work" class="work">
+		<div class="container">
+			<div class="service-head text-center">
+						<h4>WHAT I DID</h4>
+						<h3>MY <span>EXPERIENCE</span></h3>
+						<span class="border one"></span>
+					</div>
+					<div class="time-main w3l-agile">
+						{% for each in all_exp %}
+							<div class="col-md-6 year-info">
+							   <ul class="year">
+							   	
+							   		{% if each.till_date is None %}
+							   			<li>Present</li>
+							   			
+							   		{% else %}
+							   			{% with each.till_date|format:'%B,%y' as date %}
+								   			<li>{{ date }}</li>
+								   			{% endwith %}
+								   		{% endif %}
+									
+								   <div class="clearfix"></div>
+								</ul>
+							</div> 
+			                    <ul class="col-md-6 timeline pl-0">
+
+									<li>
+									  <div class="timeline-badge {{ each.color }}"><i class="glyphicon glyphicon-briefcase"></i></div>
+									  <div class="timeline-panel">
+										<div class="timeline-heading">
+										  <h4 class="timeline-title">{{ each.role }} @ {{each.company}}</h4>
+										</div>
+										<div class="timeline-body">
+											<ul>	
+											{% with each.info|split:':' as lines %}
+												{% for line in lines %}
+													<li><p>{{ line }}</p></li>
+													{% endfor %}
+												{% endwith %}
+										</ul>
+										  
+										</div>
+									  </div>
+									</li>							
+									
+							</ul>
+							{% endfor %}
+							<div class="clearfix"></div>
+					</div>
+			</div>
+	</div>
+
+
+<!-- {% for each in all_exp %}
+	
+	<p>{{ each.role}} @ {{ each.company}}</p>
+	{% with each.info|split:':' as lines %}
+		{% for line in lines %}
+			<li>{{ line }}</li>
+			{% endfor %}
+		{% endwith %}
+	{% endfor %} -->
+{% endblock %}
+</body>
