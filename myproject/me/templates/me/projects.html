@@ -1,4 +1,5 @@
 {% extends 'me/header.html' %}
+{% load custom_filter %}
 <body>
 {% block after_header %}
 
@@ -10,21 +11,32 @@
 		<span class="border one"></span>
 	</div>
 	{% for each in all_project %}
-		<div class="news-grid w3l-agile text-center" style="box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+		<div class="news-grid w3l-agile" style="box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 	">
-		    <div class="col-md-6 pt-2 pb-0 pl-0">
+		    <div class="cloumn col-md-6 pt-2 pb-0 pl-0  text-center no-float">
 			  <iframe width="450" height="347" src="{{ each.yt_link }}" name="youtube embed" allow="autoplay; encrypted-media" allowfullscreen></iframe>		 
 			</div>
-		    <div class="col-md-6 news-text">
+		    <div class="column col-md-6 news-text h-100" >
+		    	<div class=" text-center">
 			   <h3> <a href="#" data-toggle="modal" data-target="#myModal1">{{ each.title }}</a></h3>
 				<ul class="news">
 					<li><i class="glyphicon glyphicon-user"></i> <a href="{{ each.repo_link }}" target="_blank">Git Repo</a></li>	
 					<li><i class="glyphicon glyphicon-heart"></i> <a href="#">{{ each.likes }} Likes</a></li>
 					
 				</ul>
-				<p>{{ each.desc }}</p>
-				<a href="#" data-toggle="modal" data-target="#myModal1" class="read hvr-shutter-in-horizontal">Read More</a>
-		
+			</div>
+				<div class="timeline-body">
+				<ul>
+				{% with each.desc|split:':' as lines %}
+					{% for line in lines %}
+						<li><p>{{ line }}</p></li>
+					{% endfor %}
+				{% endwith %}
+				</ul>
+				</div>
+				
+				<!-- <a href="#" data-toggle="modal" data-target="#myModal1" class="read hvr-shutter-in-horizontal">Read More</a>
+		 -->
 			</div>
 
 			<div class="clearfix"></div>

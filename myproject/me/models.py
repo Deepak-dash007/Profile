@@ -31,11 +31,14 @@ class message(models.Model):
 
 class project(models.Model):
 	title = models.CharField(max_length=30)
-	desc = models.CharField(max_length=100,null=True)
+	desc = models.CharField(max_length=500,null=True)
 	likes = models.IntegerField(max_length=10, default=0)
 	repo_link = models.CharField(max_length=200,default=None, blank=True, null=True)
 	tech = models.CharField(max_length=200,default=None, blank=True, null=True)
 	yt_link = models.CharField(max_length=200,default=None, blank=True, null=True)
+
+	def __str__(self):
+		return self.title
 
 
 class PageView(models.Model):
